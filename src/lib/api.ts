@@ -1,6 +1,7 @@
 const getBase = () =>
   (typeof window !== 'undefined' && localStorage.getItem('baseUrl')) ||
-  'http://localhost:3000';
+  process.env.NEXT_PUBLIC_API_URL ||
+  'https://nest-backend-template.onrender.com';
 
 const getToken = () =>
   typeof window !== 'undefined' ? localStorage.getItem('token') || '' : '';
