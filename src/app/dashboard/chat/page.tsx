@@ -48,7 +48,8 @@ export default function ChatPage() {
   async function loadRooms() {
     try {
       const r = await api<any>('GET', '/api/v1/chat/rooms');
-      setRooms(r?.data ?? r ?? []);
+      const arr = r?.data?.data ?? r?.data?.items ?? r?.data;
+      setRooms(Array.isArray(arr) ? arr : []);
     } catch (e: any) { toast.error(e.message); }
   }
 
@@ -80,7 +81,7 @@ export default function ChatPage() {
   async function createRoom() {
     if (!newRoom.name) return;
     try {
-      await api('POST', '/api/v1/chat/rooms', { name: newRoom.name, description: newRoom.desc });
+      await api('POST', '/api/v1/chat/rooms', { name: newRoom.name, memberIds: user?.id ? [user.id] : [] });
       setNewRoom({ name: '', desc: '' });
       await loadRooms();
       toast.success('Room created');

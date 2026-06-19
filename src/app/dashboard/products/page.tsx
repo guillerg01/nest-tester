@@ -22,7 +22,8 @@ export default function ProductsPage() {
   async function load() {
     try {
       const r = await api<any>('GET', '/api/v1/products');
-      setProducts(r?.data?.items ?? r?.data ?? r ?? []);
+      const arr = r?.data?.data ?? r?.data?.items ?? r?.data;
+      setProducts(Array.isArray(arr) ? arr : []);
     } catch (e: any) { toast.error(e.message); }
   }
 

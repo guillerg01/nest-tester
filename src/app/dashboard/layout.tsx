@@ -13,7 +13,6 @@ const NAV = [
   { href: '/dashboard', label: '👤 Profile', exact: true },
   { href: '/dashboard/chat', label: '💬 Chat' },
   { href: '/dashboard/products', label: '📦 Products' },
-  { href: '/dashboard/tenants', label: '🏢 Tenants' },
   { href: '/dashboard/health', label: '🩺 Health' },
 ];
 

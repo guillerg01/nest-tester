@@ -23,7 +23,8 @@ export default function TenantsPage() {
   async function load() {
     try {
       const r = await api<any>('GET', '/api/v1/tenants');
-      setTenants(r?.data?.items ?? r?.data ?? r ?? []);
+      const arr = r?.data?.data ?? r?.data?.items ?? r?.data;
+      setTenants(Array.isArray(arr) ? arr : []);
     } catch (e: any) { toast.error(e.message); }
   }
 

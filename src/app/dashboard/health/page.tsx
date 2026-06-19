@@ -9,11 +9,10 @@ import { api, networkLog } from '@/lib/api';
 type HealthResult = { endpoint: string; status: number | null; ok: boolean; data: unknown; duration: number; error?: string };
 
 const ENDPOINTS = [
-  { label: 'Health', path: '/api/v1/health' },
+  { label: 'Health', path: '/health' },
   { label: 'Auth Login', path: '/api/v1/auth/login', method: 'POST', body: { email: 'admin@example.com', password: 'Admin1234!' } },
   { label: 'Users', path: '/api/v1/users' },
   { label: 'Products', path: '/api/v1/products' },
-  { label: 'Tenants', path: '/api/v1/tenants' },
   { label: 'Chat Rooms', path: '/api/v1/chat/rooms' },
 ];
 
