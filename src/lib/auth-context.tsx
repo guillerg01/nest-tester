@@ -18,7 +18,7 @@ const Ctx = createContext<AuthCtx>(null!);
 export function AuthProvider({ children }: { children: ReactNode }) {
   const [user, setUser] = useState<User | null>(null);
   const [token, setToken] = useState('');
-  const DEFAULT_URL = process.env.NEXT_PUBLIC_API_URL ?? 'http://localhost:3000';
+  const DEFAULT_URL = process.env.NEXT_PUBLIC_API_URL ?? 'https://nest-backend-template.onrender.com';
   const [baseUrl, _setBaseUrl] = useState(DEFAULT_URL);
 
   useEffect(() => {
